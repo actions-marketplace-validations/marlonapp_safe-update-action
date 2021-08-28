@@ -14,6 +14,7 @@ try {
   const time = (new Date()).getMilliseconds();
   console.log(time)
   
+  execSync(`mkdir -p ${targetDir}`, { encoding: 'utf-8' })
   execSync(`mkdir -p ${outputDir}/${time}`, { encoding: 'utf-8' })
   const output = execSync(`cp ${targetDir} ${outputDir}/${time}`, { encoding: 'utf-8' })
   console.log(output)
