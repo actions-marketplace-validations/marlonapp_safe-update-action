@@ -1,21 +1,28 @@
-# Hello world javascript action
+# Safe update action
 
-This action create a bachup of the **dir**
+This action create a backup of the `dir`
 
 ## Inputs
 
-## `dir`
+`workingDir`
 
-**Required** The directory o backup.
+**Required** The working directory.
 
-## Outputs
+`backupDir`
 
-## `copy`
+**Required** The backup directory.
 
-The result of the copy command
+`dir`
+
+**Required** The directory to backup.
+
 
 ## Example usage
 
-uses: actions/safe-update-action@v1.1
-with:
-  dir: <path-of-the-plugin>
+```
+  uses: marlonapp/safe-update-action@v3.0
+  with:
+    workingDir = ~/static/laboratory
+    backupDir = ~/backup
+    dir = /plugin/text
+```
