@@ -1,0 +1,12 @@
+name: 'Safe update'
+description: 'Backup the last dist of the pushed element'
+inputs:
+  dir:  # id of input
+    description: 'The directory to backup'
+    required: true
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'node12'
+  main: 'index.js'
