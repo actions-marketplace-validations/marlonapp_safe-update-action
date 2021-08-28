@@ -3,18 +3,23 @@ const execSync = require('child_process').execSync
 
 try {
 
-  const targetDir = core.getInput('dir');
+  // Getting the directory to backup
+  const workingDir = core.getInput('workingDir');
+  const targetDir = workingDir + core.getInput('dir');
   console.log(`Directory to backup: ${targetDir}`);
 
-  const outputDir = targetDir.replace('/static/laboratory', '/backup')
+  // Getting the backup directory
+  const backupDir = core.getInput('backupDir');
+  const outputDir = backupDir + core.getInput('dir');
   console.log(`Output directory: ${outputDir}`);
   
-  execSync(`mkdir -p ${targetDir}`, { encoding: 'utf-8' })
-
-  execSync(`rm -rf ${outputDir}`, { encoding: 'utf-8' })
-  execSync(`mkdir -p ${outputDir}`, { encoding: 'utf-8' })
-
-  const output = execSync(`rsync -r ${targetDir}/ ${outputDir}/`, { encoding: 'utf-8' })
+  // Prepare the directories for the backup
+  execSync(`rm -rf ${outputDir}`)
+  execSync(`mkdir -p ${outputDir}`)
+  execSync(`mkdir -p ${targetDir}`)
+  
+  // Copy the file to backup
+  const output = execSync(`rsync -r ${targetDir}/ ${outputDir}/`)
   console.log(output)
 
 } catch (error) {
