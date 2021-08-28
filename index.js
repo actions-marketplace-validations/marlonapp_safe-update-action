@@ -1,14 +1,15 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
-const execSync = require('child_process').execSync;
+const core = require('@actions/core')
+const github = require('@actions/github')
+const execSync = require('child_process').execSync
 
 try {
 
   const targetDir = core.getInput('dir');
   console.log(`Directory to backup: ${targetDir}!`);
 
-  x = targetDir.rfind("/")
-  const outputDir = targetDir[:x] + '/backup' + targetDir[x:]
+  const x = targetDir.lastIndexOf('/');
+  const outputDir = targetDir.slice(0, x).concat('/backup', targetDir.slice(x, targetDir.length))
+
   console.log(`Output directory: ${outputDir}!`);
 
 
