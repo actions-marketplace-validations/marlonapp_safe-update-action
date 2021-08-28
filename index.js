@@ -9,17 +9,13 @@ try {
 
   const x = targetDir.lastIndexOf('/');
   const outputDir = targetDir.slice(0, x).concat('/backup', targetDir.slice(x, targetDir.length))
-
   console.log(`Output directory: ${outputDir}!`);
-
-
+  
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
   console.log(time)
   
-  execSync(`mkdir ${outputDir}`, { encoding: 'utf-8' })
-  execSync(`mkdir ${outputDir}/${time}`, { encoding: 'utf-8' })
-
+  execSync(`mkdir -p ${outputDir}/${time}`, { encoding: 'utf-8' })
   const output = execSync(`cp ${targetDir} ${outputDir}/${time}`, { encoding: 'utf-8' })
   console.log(output)
 
