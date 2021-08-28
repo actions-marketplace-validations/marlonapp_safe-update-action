@@ -11,8 +11,7 @@ try {
   const outputDir = targetDir.slice(0, x).concat('/backup', targetDir.slice(x, targetDir.length))
   console.log(`Output directory: ${outputDir}!`);
   
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
+  const time = (new Date()).getMilliseconds();
   console.log(time)
   
   execSync(`mkdir -p ${outputDir}/${time}`, { encoding: 'utf-8' })
