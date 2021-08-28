@@ -10,7 +10,7 @@ This action create a bachup of the **dir**
 
 ## Outputs
 
-## `time`
+## `copy`
 
 The result of the copy command
 
