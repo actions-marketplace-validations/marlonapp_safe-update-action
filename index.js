@@ -14,7 +14,7 @@ try {
   execSync(`rm -rf ${outputDir}`, { encoding: 'utf-8' })
   execSync(`mkdir -p ${outputDir}`, { encoding: 'utf-8' })
 
-  const output = execSync(`cp ${targetDir}/* ${outputDir}`, { encoding: 'utf-8' })
+  const output = execSync(`cp ${targetDir} ${outputDir}`, { encoding: 'utf-8' })
   console.log(output)
 
 } catch (error) {
