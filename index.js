@@ -7,8 +7,7 @@ try {
   const targetDir = core.getInput('dir');
   console.log(`Directory to backup: ${targetDir}!`);
 
-  const x = targetDir.lastIndexOf('/');
-  const outputDir = targetDir.slice(0, x).concat('/backup', targetDir.slice(x, targetDir.length))
+  const outputDir = targetDir.replace('/static/laboratory', '/backup')
   console.log(`Output directory: ${outputDir}!`);
   
   const time = (new Date()).getMilliseconds();
