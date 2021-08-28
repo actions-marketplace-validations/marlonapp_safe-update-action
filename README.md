@@ -20,9 +20,9 @@ This action create a backup of the `dir`
 ## Example usage
 
 ```
-  uses: marlonapp/safe-update-action@v3.0
+  uses: marlonapp/safe-update-action@v4.0
   with:
-    workingDir = ~/static/laboratory
-    backupDir = ~/backup
-    dir = /plugin/text
+    workingDir: ~/static/laboratory
+    backupDir: ~/backup
+    dir: /plugins/text
 ```
